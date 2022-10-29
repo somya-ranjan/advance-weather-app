@@ -10,6 +10,9 @@ const containerStyle = {
   borderRadius: "5px",
 };
 function Map() {
+  // initial state
+  const ENV = process.env.REACT_APP_MAP_URL;
+
   // // redux state
   const weatherData = useSelector(weatherDetails);
 
@@ -21,7 +24,7 @@ function Map() {
     <Paper sx={{ height: "40vh" }}>
       <Grid container>
         <Grid item xs={12}>
-          <LoadScript googleMapsApiKey="AIzaSyB6LGfK8WtTh8P6Qk4vSFzRXmL7Wfvj5AQ">
+          <LoadScript googleMapsApiKey={ENV}>
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
